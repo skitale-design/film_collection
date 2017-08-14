@@ -1,5 +1,4 @@
 class Film
-
   attr_reader :director, :title, :year
 
   def initialize(path)
@@ -12,11 +11,11 @@ class Film
 
   def read_from_file
     if File.exist?(@path)
-      file = File.new(@path, "r:UTF-8")
-      test_arr = file.readlines
+      test_arr = File.readlines(@path)
       @title = test_arr[0].chomp
       @director = test_arr[1].chomp
       @year = test_arr[2].chomp
+      return test_arr
     end
   end
 
@@ -31,5 +30,4 @@ class Film
   def year
     @year
   end
-
 end
