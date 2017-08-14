@@ -3,6 +3,12 @@ require 'film'
 
 describe 'Film' do
 
+  describe 'read_from_file' do
+    it 'should check reading from file' do
+      expect(File.readlines('spec/fixtures/test.txt').empty?).to eq false
+    end
+  end
+
   describe 'initialize' do
     it 'checks title, director and year' do
       film = Film.new('spec/fixtures/test.txt')
